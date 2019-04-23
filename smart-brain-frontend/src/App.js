@@ -34,7 +34,7 @@ const initialState = {
     name: '',
     email: '',
     entries: 0,
-    joined: new Date()
+    joined: ''
   }
 }
 
@@ -108,9 +108,9 @@ class App extends Component {
 
   onRouteChange = (route) => {
     if (route === 'signout') {
-      this.setState(initialState);
+      this.setState(initialState)
     } else if (route === 'home') {
-      this.setState({isSignedIn: true});
+      this.setState({isSignedIn: true})
     }
     this.setState({route: route});
   }
@@ -126,7 +126,10 @@ class App extends Component {
         { route === 'home'
           ? <div>
               <Logo />
-              <Rank name={this.state.user.name} entries={this.state.user.entries}/>
+              <Rank 
+                name={this.state.user.name} 
+                entries={this.state.user.entries}
+              />
               <ImageLinkForm
                 onInputChange={this.onInputChange}
                 onButtonSubmit={this.onButtonSubmit}
